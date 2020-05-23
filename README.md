@@ -1,2 +1,0 @@
-# cookmoresmarts
-Begin app
