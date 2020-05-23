@@ -1,40 +1,59 @@
 <script>
-  import { onMount } from 'svelte'
-  export let name;
-  export let message;
-  onMount(async () => {
-    let data = await (await fetch('/api')).json()
-    message = data.msg
-    console.log('MESSAGE: ', message)
-  })
+	export let createdMeal;
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <h2>{message}</h2>
-  <h3>Change me!</h3>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#if !createdMeal}
+		<h1>What do you want to eat today?</h1>
+		<button on:click={() => createdMeal = true}>Generate Meal</button>
+	{:else}
+		<h1><strong>Food.</strong></h1>
+	{/if}
+
+	<footer>Created by <a href="//www.brianfran.co">Brian Franco.</a></footer>
 </main>
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
+	:global(body) {
+		background: #f79420;
+		display: grid;
+		place-content: center;
+	}
 
-  h1 { 
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
+	main {
+		text-align: center;
+		padding: 1em;
+		margin: 0 auto;
+	}
 
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
+	h1 {
+		color: white;
+		text-transform: uppercase;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-size: 6em;
+		font-weight: 100;
+	}
+
+	button {
+		background: #f1522e;
+		border: 0 none;
+		color: white;
+		padding: 10px 20px;
+	}
+
+	button:active {
+		background: #a53016;
+	}
+
+	footer {
+		line-height: 40px;
+		position: fixed;
+		text-align: center;
+		bottom: 0; left: 0;
+		width: 100%;
+	}
+
+	footer a {
+		color: #f1522e;
+	}
 </style>
-
