@@ -35,7 +35,7 @@
 	}
 	
 	@media screen and (max-width: 500px) {
-		font-size: 3em;	
+		h1 { font-size: 3em; }	
 	}
 
 	button {
