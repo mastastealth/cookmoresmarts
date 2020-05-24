@@ -33,6 +33,10 @@
 		font-size: 6em;
 		font-weight: 100;
 	}
+	
+	@media screen and (max-width: 500px) {
+		font-size: 3em;	
+	}
 
 	button {
 		background: #f1522e;
